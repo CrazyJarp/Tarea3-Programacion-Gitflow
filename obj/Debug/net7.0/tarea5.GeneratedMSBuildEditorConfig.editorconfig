@@ -9,69 +9,65 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = tarea5
 build_property.RootNamespace = tarea5
-build_property.ProjectDir = C:\Users\Jarp\Downloads\Nuevacarpeta\tarea5\
+build_property.ProjectDir = c:\Users\Jarp\Desktop\ \programacion 3\Tarea3\tarea3git\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Jarp\Downloads\Nuevacarpeta\tarea5
+build_property.MSBuildProjectDirectory = c:\Users\Jarp\Desktop\ \programacion 3\Tarea3\tarea3git
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Jarp/Downloads/Nuevacarpeta/tarea5/App.razor]
+[c:/Users/Jarp/Desktop/ /programacion 3/Tarea3/tarea3git/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jarp/Downloads/Nuevacarpeta/tarea5/Pages/AcercaDe.razor]
+[c:/Users/Jarp/Desktop/ /programacion 3/Tarea3/tarea3git/Pages/AcercaDe.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNlcmNhRGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jarp/Downloads/Nuevacarpeta/tarea5/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Jarp/Downloads/Nuevacarpeta/tarea5/Pages/FetchData.razor]
+[c:/Users/Jarp/Desktop/ /programacion 3/Tarea3/tarea3git/Pages/FetchData.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jarp/Downloads/Nuevacarpeta/tarea5/Pages/Index.razor]
+[c:/Users/Jarp/Desktop/ /programacion 3/Tarea3/tarea3git/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jarp/Downloads/Nuevacarpeta/tarea5/Pages/Rescates/Editar.razor]
+[c:/Users/Jarp/Desktop/ /programacion 3/Tarea3/tarea3git/Pages/Rescates/Editar.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVzY2F0ZXNcRWRpdGFyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jarp/Downloads/Nuevacarpeta/tarea5/Pages/Rescates/Imprimir.razor]
+[c:/Users/Jarp/Desktop/ /programacion 3/Tarea3/tarea3git/Pages/Rescates/Imprimir.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVzY2F0ZXNcSW1wcmltaXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jarp/Downloads/Nuevacarpeta/tarea5/Pages/Rescates/Lista.razor]
+[c:/Users/Jarp/Desktop/ /programacion 3/Tarea3/tarea3git/Pages/Rescates/Lista.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVzY2F0ZXNcTGlzdGEucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jarp/Downloads/Nuevacarpeta/tarea5/Shared/PrintLayout.razor]
+[c:/Users/Jarp/Desktop/ /programacion 3/Tarea3/tarea3git/Shared/PrintLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFByaW50TGF5b3V0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jarp/Downloads/Nuevacarpeta/tarea5/Shared/SurveyPrompt.razor]
+[c:/Users/Jarp/Desktop/ /programacion 3/Tarea3/tarea3git/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jarp/Downloads/Nuevacarpeta/tarea5/_Imports.razor]
+[c:/Users/Jarp/Desktop/ /programacion 3/Tarea3/tarea3git/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jarp/Downloads/Nuevacarpeta/tarea5/Shared/MainLayout.razor]
+[c:/Users/Jarp/Desktop/ /programacion 3/Tarea3/tarea3git/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-vr4aexn1c1
 
-[C:/Users/Jarp/Downloads/Nuevacarpeta/tarea5/Shared/NavMenu.razor]
+[c:/Users/Jarp/Desktop/ /programacion 3/Tarea3/tarea3git/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-1v51mw9i8h
 
-[C:/Users/Jarp/Downloads/Nuevacarpeta/tarea5/Pages/Error.cshtml]
+[c:/Users/Jarp/Desktop/ /programacion 3/Tarea3/tarea3git/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jarp/Downloads/Nuevacarpeta/tarea5/Pages/_Host.cshtml]
+[c:/Users/Jarp/Desktop/ /programacion 3/Tarea3/tarea3git/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
