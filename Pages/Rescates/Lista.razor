@@ -1,0 +1,59 @@
+@page "/rescates"
+
+<h3>Listas de los rescates</h3>
+
+<div class="text-end">
+    <NavLink class="btn btn-primary" href="/rescates/editar">Nuevo Rescate</NavLink>
+</div>
+
+<p>Lista de rescates realizados</p>
+<table class="table table-bordered table-striped table-dark">
+    <thead>
+        <tr>
+            <th>Tipo</th>
+            <th>Marca</th>
+            <th>Tecnologia</th>
+            <th>Opciones de edicion e impresion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var nave in NavesEspaciales)
+        {
+            var link_editar = $"/rescates/editar/{nave.id}";
+            var link_imprimir = $"/rescates/imprimir/{nave.id}";
+            <tr>
+                <td>@nave.Tipo</td>
+                <td>@nave.Marca</td>
+                <td>@nave.Tecnologia</td>
+                <td>
+                    <NavLink class="btn btn-primary btn-sm" href="@link_editar">Editar</NavLink>
+                    <a class="btn btn-danger btn-sm" target= "ifprint" href="@link_imprimir">Imprimir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<iframe style="display:none" src="" name="ifprint" frameborder="0"></iframe>
+
+@code
+{
+
+    List<NaveEspacial> NavesEspaciales = new List<NaveEspacial>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        if(!Directory.Exists("Datos"))
+        {
+            return;
+        }
+
+        var archivos = Directory.GetFiles("datos", "*.json");
+        foreach(var archivo in archivos)
+        {
+            var json = await File.ReadAllTextAsync(archivo);
+            var nave = Newtonsoft.Json.JsonConvert.DeserializeObject<NaveEspacial>(json);
+            NavesEspaciales.Add(nave);
+        }
+    }
+
+}

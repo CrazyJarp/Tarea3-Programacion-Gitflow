@@ -1,0 +1,173 @@
+@page "/rescates/editar"
+@page "/rescates/editar/{id}"
+@inject NavigationManager NavMan
+@inject IJSRuntime Js
+
+<h3>Detalles del rescate</h3>
+
+<fieldset>
+    <legend>Datos de la nave</legend>
+
+    <div class="from-group">
+        <label for="nombre">Tipo</label>
+        <input type="text" class="form-control" placeholder="Tipo de la nave" @bind="nave.Tipo"/>
+    </div>
+    <div class="from-group">
+        <label for="nombre">Marca</label>
+        <input type="text" class="form-control" placeholder="Marca de la nave" @bind="nave.Marca"/>
+    </div>
+    <div class="from-group">
+        <label for="nombre">Raza</label>
+        <input type="text" class="form-control" placeholder="Raza de la nave" @bind="nave.Raza"/>
+    </div>
+    <div class="from-group">
+        <label for="nombre">Tecnologia</label>
+        <input type="text" class="form-control" placeholder="Tecnologia de la nave" @bind="nave.Tecnologia"/>
+    </div>
+    <div class="from-group">
+        <label for="nombre">Capacidad de carga</label>
+        <input type="text" class="form-control" placeholder="Capacidad de carga de la nave" @bind="nave.CapacidadDeCarga"/>
+    </div>
+    <div class="from-group">
+        <label for="nombre">Capacidad de pasajeros</label>
+        <input type="text" class="form-control" placeholder="Capacidad de pasajeros de la nave" @bind="nave.CapacidadDePasajeros"/>
+    </div>
+    <div class="from-group">
+        <label for="nombre">Distancia en años luz</label>
+        <input type="text" class="form-control" placeholder="Distancia en años luz de la nave" @bind="nave.DistanciaEnAñosLuz"/>
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Detalles de los pasajeros</legend>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>Cedula</th>
+                <th>Nombre</th>
+                <th>Raza</th>
+                <th>Fecha de Nacimineto</th>
+                <th>Sexo</th>
+                <td>
+                    <button class="btn btn-primary btn-sm" @onclick="() => nave.Pasajeros.Add(new Pasajero())">Agregar</button>
+                </td>
+            </tr>
+        </thead>
+            @foreach (var Pasajero in nave.Pasajeros)
+            {
+                <tbody style ="border: solid 1px dark; padding: 10px">
+                <tr style ="backgroun:#ccccccc">
+                    <td><input type="text" @bind="@Pasajero.Cedula"/></td>
+                    <td><input type="text" @bind="@Pasajero.Nombre"/></td>
+                    <td><input type="text" @bind="@Pasajero.Raza"/></td>
+                    <td><input type="date" @bind="@Pasajero.FechaNacimiento"/></td>
+                    <td><input type="text" @bind="@Pasajero.Sexo"/></td>
+
+                    <td>
+                        <button class="btn btn-danger btn-sm" @onclick="() => nave.Pasajeros.Remove(Pasajero)">Eliminar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <div class="text-end"><button type="button" class="btn btn-success btn-sm" @onclick= "() => Pasajero.Objetos.Add(new Objeto())">Agregar pertenencias</button></div>
+                        @if (Pasajero.Objetos.Count > 0){
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Tipo</th>
+                                        <th>Nombre</th>
+                                        <th>Valor</th>
+                                        <th>Radiactivo</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var Objeto in Pasajero.Objetos)
+                                    {
+                                        <tr>
+                                            <td><input type="text" @bind="@Objeto.Tipo"/></td>
+                                            <td><input type="text" @bind="@Objeto.Nombre"/></td>
+                                            <td><input type="text" @bind="@Objeto.Valor"/></td>
+                                            <td>
+                                                <select @bind="@Objeto.EsRadioactivo" class="form-control">
+                                                    <option value="@EnumRadioactivo.Si">Si</option>
+                                                    <option value="@EnumRadioactivo.No">No</option>
+                                                </select>
+                                            
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm" @onclick="() => Pasajero.Objetos.Remove(Objeto)">Eliminar</button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                    </td>
+                </tr>
+                </tbody>
+            }
+    </table>
+</fieldset>
+
+<div class="text-center">
+    <button class="btn btn-primary btn-sm" @onclick="() => Guardar()">Guardar</button>
+</div>
+
+@code{
+    NaveEspacial nave = new NaveEspacial();
+   
+   
+   [Parameter]
+   public string id {get; set;} ="";
+
+    bool redirect = false;
+   protected override void OnInitialized()
+    {
+        if(id != null && id.Length > 5)
+        {
+            if(File.Exists($"datos/{id}.json"))
+            {
+            var data = File.ReadAllText($"Datos/{id}.json");
+            nave = Newtonsoft.Json.JsonConvert.DeserializeObject<NaveEspacial>(data);
+            }else
+            {
+                redirect = true;
+            }
+        }
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if(redirect)
+        {
+            Js.InvokeVoidAsync("alert", "Registro no encontrado");
+            NavMan.NavigateTo("/rescates");
+        }
+
+
+
+    }
+
+
+
+
+   
+    void Guardar(){
+
+        var idx = Guid.NewGuid().ToString();
+        if(nave.id.Length < 5)
+        {
+            nave.id = idx;
+        }
+        var datax = Newtonsoft.Json.JsonConvert.SerializeObject(nave);
+        Console.WriteLine(datax);
+        if (Directory.Exists("Datos") == false)
+        {
+            Directory.CreateDirectory("Datos");
+        }
+        File.WriteAllText($"Datos/{nave.id}.json", datax);
+        NavMan.NavigateTo("/rescates");
+    }
+}
+

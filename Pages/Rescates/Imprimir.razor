@@ -1,0 +1,48 @@
+@page "/rescates/imprimir/{id}"
+@inject IJSRuntime Js
+@layout PrintLayout
+
+
+@id
+
+<div>
+    Tipo: @nave.Tipo
+</div>
+<div>
+    Marca: @nave.Marca
+</div>
+<div>
+    Raza: @nave.Raza
+</div>
+<div>
+    Tecnologia: @nave.Tecnologia
+</div>
+<div>
+
+
+</div>
+
+@code{
+
+    [Parameter]
+    public string id {get; set;} = "";
+    public int dinero {get; set;} = 0;
+
+
+    NaveEspacial nave = new NaveEspacial();
+
+    protected override async Task OnInitializedAsync()
+    {
+        if(File.Exists($"datos/{id}.json"))
+        {
+            nave = Newtonsoft.Json.JsonConvert.DeserializeObject<NaveEspacial>(await File.ReadAllTextAsync($"datos/{id}.json"));
+        }
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if(firstRender)
+        {
+            await Js.InvokeVoidAsync("window.print");
+        }
+    }
+}
